@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>knn©©b</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="css/checkout.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<!-- body -->
+
+<body class="main-layout">
+    <!-- header -->
+    <header>
+        <!-- header inner -->
+        <div class="header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col logo_section">
+                        <div class="full">
+                            <div class="center-desk">
+                                <div class="logo">
+                                    <a href="index.html"><img src="images/bang.gif" style="height: 60px;"
+                                            alt="#" />&nbsp;
+                                            knn©©b</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7">
+                        <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarsExample04">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="checkout.html">Register 💿</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.html#we_do">Services</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.html#contact">Contact</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="songs.html">Songs</a>
+                                    </li>
+                                </ul>
+                                <div class="sign_btn"><a href="#">Sign in</a></div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </header>
+    <!-- end header inner -->
+    <!-- end header -->
+
+
+
+    <body>
+        <div class="tabs">
+
+            <input name="tabbed" id="tabbed1" onclick="tabcheck1()" type="radio" checked>
+            <section class="tabbed">
+                <h1>
+                    <label for="tabbed1">Register</label>
+                </h1>
+                <div class="tabbed-desc">
+                    <container class="mainscreen">
+                        <div class="card">
+                            <div class="leftside">
+                                <img src="images/3428225.png" class="product" alt="Shoes" />
+                            </div>
+                            <div class="rightside">
+                                <form action="">
+                                    <h1>Register Your Song</h1>
+                                    <br>
+                                    <p>Song Name</p>
+                                    <input type="text" class="profile-name" name="name" placeholder="Song Name"
+                                        required />
+                                    <p>Your Email</p>
+                                    <input type="text" class="inputbox" name="email" placeholder="Your Email" id="email"
+                                        required />
+                                    <p>Your Account ID (from MetaMask)</p>
+                                    <input type="text" value="Read Metamask ID" class="inputbox" name="metaid"
+                                        id="metaid" disabled />
+                                    <p>Upload Album Cover</p>
+                                    <input type='file' accept="image/*" class="profile-img" placeholder="">
+                                    <p>Upload Audio</p>
+                                    <input type='file' accept="audio/*" class="profile-aud" placeholder="">
+
+                                    <button type="submit" class="button" href="#tabbed2">Proceed</button>
+                                </form>
+                            </div>
+                        </div>
+                    </container>
+                </div>
+            </section>
+
+            <input name="tabbed" id="tabbed2" onclick="tabcheck2()" type="radio">
+            <section class="tabbed">
+                <h1>
+                    <label for="tabbed2">Generate Unique Hash</label>
+                </h1>
+            </section>
+
+            <input name="tabbed" id="tabbed3" onclick="tabcheck3()" type="radio">
+            <section class="tabbed">
+                <h1>
+                    <label for="tabbed3">Confirmation</label>
+                </h1>
+                
+            </section>
+
+        </div>
+
+
+    </body>
+    <script src="js/checkout.js"></script>
+    <script>
+        function tabcheck1() {
+            var el = document.getElementById("tabbed1");
+            var ell = document.getElementById("tabbed2");
+            var elll = document.getElementById("tabbed3");
+            el.classList.add("checked");
+            ell.classList.remove("checked");
+            elll.classList.remove("checked");
+        }
+        function tabcheck2() {
+            var el = document.getElementById("tabbed1");
+            var ell = document.getElementById("tabbed2");
+            var elll = document.getElementById("tabbed3");
+            el.classList.remove("checked");
+            ell.classList.add("checked");
+            elll.classList.remove("checked");
+        }
+        function tabcheck3() {
+            var el = document.getElementById("tabbed1");
+            var ell = document.getElementById("tabbed2");
+            var elll = document.getElementById("tabbed3");
+            el.classList.remove("checked");
+            ell.classList.remove("checked");
+            elll.classList.add("checked");
+        }
+    </script>
+</body>

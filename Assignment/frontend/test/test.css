@@ -1,0 +1,84 @@
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  form,
+  .header {
+    width: 250px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dotted purple;
+  }
+  input,
+  button {
+    width: 175px;
+    height: 30px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 7px;
+    border: 2px solid purple;
+  }
+  
+  input[type="file"]{
+    border: none;
+  }
+  
+  button {
+    background-color: #800080;
+    color: white;
+    box-sizing: content-box;
+    margin-top: 15px;
+    cursor: pointer;
+  }
+  label {
+    padding: 10px;
+  }
+  .header {
+    flex-direction: row;
+    display: none;
+  }
+  .profile {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .profile img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid purple;
+  }
+  
+  figure h2 {
+    font-size: 18px;
+    font-weight: bold;
+    color: purple;
+    margin: 0;
+  }
+  
+  figure {
+    margin-inline-start: 10px;
+    margin-inline-end: 0px;
+    margin-top: 10px;
+    color: purple;
+  }
+  
+  audio {
+    width: 170px;
+    height: 40px;
+    margin-top: 10px;
+  }
+  
+  input:focus{
+    outline: none;
+    border: 3px dotted orange;
+  }
