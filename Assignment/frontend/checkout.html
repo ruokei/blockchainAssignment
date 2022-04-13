@@ -34,7 +34,8 @@
 </head>
 <!-- body -->
 
-<body class="main-layout">
+<body onload="getId()" class="main-layout">
+    
     <!-- header -->
     <header>
         <!-- header inner -->
@@ -105,42 +106,7 @@
             <input name="tabbed" id="tabbed1" onclick="tabcheck1()" type="radio" checked>
             <section class="tabbed">
                 <h1>
-                    <label for="tabbed1">Register Song</label>
-                </h1>
-                <div class="tabbed-desc">
-                    <container class="mainscreen">
-                        <div class="card">
-                            <div class="leftside">
-                                <img src="images/3428225.png" class="product" alt="Shoes" />
-                            </div>
-                            <div class="rightside">
-                                <form action="">
-                                    <h1>Register Song</h1>
-                                    <br>
-                                    <p>Song Name</p>
-                                    <input id="songName" type="text" class="profile-name" name="name" placeholder="Song Name"
-                                        required />
-                                    <p>Song Price</p>
-                                    <input id="songPrice" type="text" class="inputbox" name="price" placeholder="Song Price" id="price"
-                                        required />
-                                    <!--<p>Upload Album Cover</p>
-                                    <input type='file' accept="image/*" class="profile-img" placeholder="">
-                                    <p>Upload Audio</p>
-                                    <input type='file' accept="audio/*" class="profile-aud" placeholder="">-->
-
-                                    <button onclick="addSong();" type="submit" class="button" href="#tabbed2">Proceed</button>
-                                </form>
-                            </div>
-                        </div>
-                    </container>
-                </div>
-            </section>
-
-            <input name="tabbed" id="tabbed2" onclick="tabcheck2()" type="radio">
-
-            <section class="tabbed">
-                <h1>
-                    <label for="tabbed2">Buy Song</label>
+                    <label for="tabbed1">Buy Song</label>
                 </h1>
                 <div class="tabbed-desc">
                     <container class="mainscreen">
@@ -153,9 +119,46 @@
                                     <h1>Buy Song</h1>
                                     <br>
                                     <p>Song ID</p>
-                                    <input id="songId" type="text" class="profile-name" name="name" placeholder="Song ID"
-                                        required />
-                                    <button onclick="buySong();" type="submit" class="button" href="#tabbed1">Proceed</button>
+                                    <input id="songId" type="text" class="profile-name" name="name"
+                                        placeholder="Song ID" required />
+                                    <button onclick="buySong();" type="submit" class="button"
+                                        href="#tabbed1">Proceed</button>
+                                </form>
+                            </div>
+                        </div>
+                    </container>
+                </div>
+            </section>
+
+            <input name="tabbed" id="tabbed2" onclick="tabcheck2()" type="radio">
+
+            <section class="tabbed">
+                <h1>
+                    <label for="tabbed2">Register Song</label>
+                </h1>
+                <div class="tabbed-desc">
+                    <container class="mainscreen">
+                        <div class="card">
+                            <div class="leftside">
+                                <img src="images/3428225.png" class="product" alt="Shoes" />
+                            </div>
+                            <div class="rightside">
+                                <form action="">
+                                    <h1>Register Song</h1>
+                                    <br>
+                                    <p>Song Name</p>
+                                    <input id="songName" type="text" class="profile-name" name="name"
+                                        placeholder="Song Name" required />
+                                    <p>Song Price</p>
+                                    <input id="songPrice" type="text" class="inputbox" name="price"
+                                        placeholder="Song Price" id="price" required />
+                                    <!--<p>Upload Album Cover</p>
+                                    <input type='file' accept="image/*" class="profile-img" placeholder="">
+                                    <p>Upload Audio</p>
+                                    <input type='file' accept="audio/*" class="profile-aud" placeholder="">-->
+
+                                    <button onclick="addSong();" type="submit" class="button"
+                                        href="#tabbed2">Proceed</button>
                                 </form>
                             </div>
                         </div>
@@ -210,6 +213,12 @@
             var ell = document.getElementById("tabbed2");
             el.classList.remove("checked");
             ell.classList.remove("checked");
+        }
+    </script>
+    <script>
+        function getId(){
+            var queryString = location.search.substring(1);
+            document.getElementById("songId").value = queryString;
         }
     </script>
 

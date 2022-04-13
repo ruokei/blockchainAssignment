@@ -115,3 +115,6 @@ function updateStatus(status) {
 }
 
 load();
+
+
+// TEST //
