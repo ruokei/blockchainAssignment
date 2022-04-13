@@ -56,8 +56,191 @@ async function loadWeb3() {
 
 async function loadContract() {
     // set ABI
-    var abi = [{ "constant": true, "inputs": [{ "name": "_tweetId", "type": "uint256" }], "name": "getTweetDetail", "outputs": [{ "name": "tweetId", "type": "uint256" }, { "name": "name", "type": "string" }, { "name": "content", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "_name", "type": "string" }, { "name": "_content", "type": "string" }], "name": "createTweet", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "getTotalTweet", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "uint256" }], "name": "tweets", "outputs": [{ "name": "tweetId", "type": "uint256" }, { "name": "name", "type": "string" }, { "name": "content", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "anonymous": false, "inputs": [{ "indexed": false, "name": "tweetId", "type": "uint256" }, { "indexed": false, "name": "name", "type": "string" }, { "indexed": false, "name": "content", "type": "string" }], "name": "NewTwitter", "type": "event" }];
-
+    var abi = [
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "name": "artistList",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "artistAddress",
+                    "type": "address"
+                },
+                {
+                    "internalType": "string",
+                    "name": "artistName",
+                    "type": "string"
+                },
+                {
+                    "internalType": "bool",
+                    "name": "isExist",
+                    "type": "bool"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "name": "customerList",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "customerName",
+                    "type": "string"
+                },
+                {
+                    "internalType": "bool",
+                    "name": "isExist",
+                    "type": "bool"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "artistAddress",
+                    "type": "address"
+                }
+            ],
+            "name": "getArtistDetail",
+            "outputs": [
+                {
+                    "components": [
+                        {
+                            "internalType": "address",
+                            "name": "artistAddress",
+                            "type": "address"
+                        },
+                        {
+                            "internalType": "string",
+                            "name": "artistName",
+                            "type": "string"
+                        },
+                        {
+                            "internalType": "bool",
+                            "name": "isExist",
+                            "type": "bool"
+                        }
+                    ],
+                    "internalType": "struct User.Artist",
+                    "name": "",
+                    "type": "tuple"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "customerAddress",
+                    "type": "address"
+                }
+            ],
+            "name": "getCustomerDetail",
+            "outputs": [
+                {
+                    "components": [
+                        {
+                            "internalType": "string",
+                            "name": "customerName",
+                            "type": "string"
+                        },
+                        {
+                            "internalType": "bool",
+                            "name": "isExist",
+                            "type": "bool"
+                        }
+                    ],
+                    "internalType": "struct User.Customer",
+                    "name": "",
+                    "type": "tuple"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "isExist",
+            "outputs": [
+                {
+                    "internalType": "bool",
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "name": "products",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "musicId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "musicName",
+                    "type": "string"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "string",
+                    "name": "name",
+                    "type": "string"
+                }
+            ],
+            "name": "registerArtist",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "string",
+                    "name": "name",
+                    "type": "string"
+                }
+            ],
+            "name": "registerCustomer",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }
+    ]
     //set contract address
     var contractAddress = '0xCBdcfE1e3F664ec31833E766B4a46ba725B8c0A3';
 
