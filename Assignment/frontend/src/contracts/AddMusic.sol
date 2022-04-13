@@ -3,6 +3,7 @@ pragma solidity ^0.8.0;
 pragma experimental ABIEncoderV2;
 import "./User.sol";
 import "./Token.sol";
+//import "node_modules/openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 // step to buy a product in remix IDE
@@ -19,11 +20,11 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract AddMusic is Ownable {
     
-    Token token;
+    LunCoin token;
     User musicUser;
     uint public musicId=1;
     
-    constructor(address userContract, Token _token) public {
+    constructor(address userContract, LunCoin _token) public {
         musicUser = User(userContract);
         token = _token;
     }
@@ -39,8 +40,8 @@ contract AddMusic is Ownable {
     mapping(address => uint[]) public customerProductPurchased; 
     mapping(address => uint[]) public artistProduct; 
     
-    function addProduct(string memory productName, uint productPrice) public {
-        if (dmusicUser.getCustomerDetail(msg.sender).isExist) {
+    function addProduct(string memory musicName, uint productPrice) public {
+        if (musicUser.getCustomerDetail(msg.sender).isExist) {
             revert("Only an Artist can upload product!");
         }
         
