@@ -47,6 +47,7 @@ window.addEventListener('DOMContentLoaded', () => {
     toggleButton()
 });
 
+// ------------------------------------------- CONTENT ------------------------------------------------------ //
 async function loadWeb3() {
     if (window.ethereum) {
         window.web3 = new Web3(window.ethereum);
@@ -64,8 +65,8 @@ async function loadContract() {
     return await new window.web3.eth.Contract(abi, contractAddress);
 }
 
-async function getTweets() {
-    updateStatus('fetching All Tweets...');
+async function addSong() {
+    updateStatus('Adding Song...');
     const tweetsNumber = await window.contract.methods.getTotalTweet().call();
 
     for (i = 0; i < tweetsNumber; i++) {
