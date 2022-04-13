@@ -94,8 +94,7 @@
     <body>
 
         <div class="col text-center justify-content-center">
-            <button id='loginButton' onclick="" class="button" style="width:60%;margin-bottom:10px;">Login with
-                MetaMask</button>
+            <button id='loginButton' onclick="" class="button" style="width:60%;margin-bottom:10px;">Login with MetaMask</button>
             <p>Your Metamask ID</p>
             <p id='userWallet' class="inputbox" name="metaid" value="Your Metamask ID" style="margin-bottom:50px;"></p>
         </div>
@@ -105,7 +104,7 @@
             <input name="tabbed" id="tabbed1" onclick="tabcheck1()" type="radio" checked>
             <section class="tabbed">
                 <h1>
-                    <label for="tabbed1">Register Song</label>
+                    <label for="tabbed1">Register Customer</label>
                 </h1>
                 <div class="tabbed-desc">
                     <container class="mainscreen">
@@ -115,45 +114,10 @@
                             </div>
                             <div class="rightside">
                                 <form action="">
-                                    <h1>Register Song</h1>
+                                    <h1>Register as Customer</h1>
                                     <br>
-                                    <p>Song Name</p>
-                                    <input type="text" class="profile-name" name="name" placeholder="Song Name"
-                                        required />
-                                    <p>Song Price</p>
-                                    <input type="text" class="inputbox" name="price" placeholder="Song Price" id="price"
-                                        required />
-                                    <!--<p>Upload Album Cover</p>
-                                    <input type='file' accept="image/*" class="profile-img" placeholder="">
-                                    <p>Upload Audio</p>
-                                    <input type='file' accept="audio/*" class="profile-aud" placeholder="">-->
-
-                                    <button type="submit" class="button" href="#tabbed2">Proceed</button>
-                                </form>
-                            </div>
-                        </div>
-                    </container>
-                </div>
-            </section>
-
-            <input name="tabbed" id="tabbed2" onclick="tabcheck2()" type="radio">
-
-            <section class="tabbed">
-                <h1>
-                    <label for="tabbed2">Buy Song</label>
-                </h1>
-                <div class="tabbed-desc">
-                    <container class="mainscreen">
-                        <div class="card">
-                            <div class="leftside">
-                                <img src="images/3428225.png" class="product" alt="Shoes" />
-                            </div>
-                            <div class="rightside">
-                                <form action="">
-                                    <h1>Buy Song</h1>
-                                    <br>
-                                    <p>Song ID</p>
-                                    <input type="text" class="profile-name" name="name" placeholder="Song ID"
+                                    <p>Name</p>
+                                    <input type="text" class="profile-name" name="name" placeholder="Customer Name"
                                         required />
                                     <button type="submit" class="button" href="#tabbed1">Proceed</button>
                                 </form>
@@ -163,13 +127,37 @@
                 </div>
             </section>
 
-
+            <input name="tabbed" id="tabbed2" onclick="tabcheck2()" type="radio">
+            <section class="tabbed">
+                <h1>
+                    <label for="tabbed2">Register Artist</label>
+                </h1>
+                <div class="tabbed-desc">
+                    <container class="mainscreen">
+                        <div class="card">
+                            <div class="leftside">
+                                <img src="images/3428225.png" class="product" alt="Shoes" />
+                            </div>
+                            <div class="rightside">
+                                <form action="">
+                                    <h1>Register as Artist</h1>
+                                    <br>
+                                    <p>Name</p>
+                                    <input type="text" class="profile-name" name="name" placeholder="Artist Name"
+                                        required />                                    
+                                    <button type="submit" class="button" href="#tabbed1">Proceed</button>
+                                </form>
+                            </div>
+                        </div>
+                    </container>
+                </div>
+            </section>
         </div>
 
 
     </body>
 
-    <script src="js/checkout.js"></script>
+    <script src="js/register.js"></script>
     <script scr='https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js'></script>
     <script>
         async function loadWeb3() {
@@ -184,32 +172,62 @@
         function tabcheck1() {
             var el = document.getElementById("tabbed1");
             var ell = document.getElementById("tabbed2");
+            var elll = document.getElementById("tabbed3");
+            var ellll = document.getElementById("tabbed4");
+            var elllll = document.getElementById("tabbed5");
             el.classList.add("checked");
             ell.classList.remove("checked");
+            elll.classList.remove("checked");
+            ellll.classList.remove("checked");
+            elllll.classList.remove("checked");
         }
         function tabcheck2() {
             var el = document.getElementById("tabbed1");
             var ell = document.getElementById("tabbed2");
+            var elll = document.getElementById("tabbed3");
+            var ellll = document.getElementById("tabbed4");
+            var elllll = document.getElementById("tabbed5");
             el.classList.remove("checked");
             ell.classList.add("checked");
+            elll.classList.remove("checked");
+            ellll.classList.remove("checked");
+            elllll.classList.remove("checked");
         }
         function tabcheck3() {
             var el = document.getElementById("tabbed1");
             var ell = document.getElementById("tabbed2");
+            var elll = document.getElementById("tabbed3");
+            var ellll = document.getElementById("tabbed4");
+            var elllll = document.getElementById("tabbed5");
             el.classList.remove("checked");
             ell.classList.remove("checked");
+            elll.classList.add("checked");
+            ellll.classList.remove("checked");
+            elllll.classList.remove("checked");
         }
         function tabcheck4() {
             var el = document.getElementById("tabbed1");
             var ell = document.getElementById("tabbed2");
+            var elll = document.getElementById("tabbed3");
+            var ellll = document.getElementById("tabbed4");
+            var elllll = document.getElementById("tabbed5");
             el.classList.remove("checked");
             ell.classList.remove("checked");
+            elll.classList.remove("checked");
+            ellll.classList.add("checked");
+            elllll.classList.remove("checked");
         }
         function tabcheck5() {
             var el = document.getElementById("tabbed1");
             var ell = document.getElementById("tabbed2");
+            var elll = document.getElementById("tabbed3");
+            var ellll = document.getElementById("tabbed4");
+            var elllll = document.getElementById("tabbed5");
             el.classList.remove("checked");
             ell.classList.remove("checked");
+            elll.classList.remove("checked");
+            ellll.classList.remove("checked");
+            elllll.classList.add("checked");
         }
     </script>
 
