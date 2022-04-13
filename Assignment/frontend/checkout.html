@@ -118,17 +118,17 @@
                                     <h1>Register Song</h1>
                                     <br>
                                     <p>Song Name</p>
-                                    <input type="text" class="profile-name" name="name" placeholder="Song Name"
+                                    <input id="songName" type="text" class="profile-name" name="name" placeholder="Song Name"
                                         required />
                                     <p>Song Price</p>
-                                    <input type="text" class="inputbox" name="price" placeholder="Song Price" id="price"
+                                    <input id="songPrice" type="text" class="inputbox" name="price" placeholder="Song Price" id="price"
                                         required />
                                     <!--<p>Upload Album Cover</p>
                                     <input type='file' accept="image/*" class="profile-img" placeholder="">
                                     <p>Upload Audio</p>
                                     <input type='file' accept="audio/*" class="profile-aud" placeholder="">-->
 
-                                    <button type="submit" class="button" href="#tabbed2">Proceed</button>
+                                    <button onclick="addSong();" type="submit" class="button" href="#tabbed2">Proceed</button>
                                 </form>
                             </div>
                         </div>
@@ -153,9 +153,9 @@
                                     <h1>Buy Song</h1>
                                     <br>
                                     <p>Song ID</p>
-                                    <input type="text" class="profile-name" name="name" placeholder="Song ID"
+                                    <input id="songId" type="text" class="profile-name" name="name" placeholder="Song ID"
                                         required />
-                                    <button type="submit" class="button" href="#tabbed1">Proceed</button>
+                                    <button onclick="buySong();" type="submit" class="button" href="#tabbed1">Proceed</button>
                                 </form>
                             </div>
                         </div>

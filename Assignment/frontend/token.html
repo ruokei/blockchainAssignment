@@ -94,7 +94,8 @@
     <body>
 
         <div class="col text-center justify-content-center">
-            <button id='loginButton' onclick="" class="button" style="width:60%;margin-bottom:10px;">Login with MetaMask</button>
+            <button id='loginButton' onclick="" class="button" style="width:60%;margin-bottom:10px;">Login with
+                MetaMask</button>
             <p>Your Metamask ID</p>
             <p id='userWallet' class="inputbox" name="metaid" value="Your Metamask ID" style="margin-bottom:50px;"></p>
         </div>
@@ -116,9 +117,9 @@
                                     <h1>Buy Tokens</h1>
                                     <br>
                                     <p>Token Amount</p>
-                                    <input type="text" class="profile-name" name="token" placeholder="Token Amount"
+                                    <input id="tokenAmount" type="text" class="profile-name" name="token" placeholder="Token Amount"
                                         required />
-                                    <button type="submit" class="button" href="#tabbed1">Proceed</button>
+                                    <button onclick="exchangeTokens()" type="submit" class="button" href="#tabbed1">Proceed</button>
                                 </form>
                             </div>
                         </div>

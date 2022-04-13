@@ -20,18 +20,18 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract AddMusic is Ownable {
     
     Token token;
-    DmusicUser dmusicUser;
+    User musicUser;
     uint public musicId=1;
     
     constructor(address userContract, Token _token) public {
-        dmusicUser = DmusicUser(userContract);
+        musicUser = User(userContract);
         token = _token;
     }
         
     struct Product {
         uint musicId;
         string musicName;
-        uint proudctPriceInADC;
+        uint productPrice;
         address artistAddress;
     }
     
@@ -39,20 +39,20 @@ contract AddMusic is Ownable {
     mapping(address => uint[]) public customerProductPurchased; 
     mapping(address => uint[]) public artistProduct; 
     
-    function addProduct(string memory productName, uint proudctPriceInADC) public {
+    function addProduct(string memory productName, uint productPrice) public {
         if (dmusicUser.getCustomerDetail(msg.sender).isExist) {
-            revert("Only artist account can upload product!");
+            revert("Only an Artist can upload product!");
         }
         
-        products[musicId] = Product(musicId, musicName, proudctPriceInADC, msg.sender);
+        products[musicId] = Product(musicId, musicName, productPrice, msg.sender);
         artistProduct[msg.sender].push(musicId);
         musicId++;
     }
     
     function buyProduct(uint id) public {
-        address artistAddress = dmusicUser.getArtistDetail(products[id].artistAddress).artistAddress;
-        token.transferFrom(msg.sender, artistAddress, products[id].proudctPriceInADC * 90 / 100);
-        token.transferFrom(msg.sender, Ownable.owner(), products[id].proudctPriceInADC * 10 / 100);
+        address artistAddress = musicUser.getArtistDetail(products[id].artistAddress).artistAddress;
+        token.transferFrom(msg.sender, artistAddress, products[id].productPrice * 95 / 100);
+        token.transferFrom(msg.sender, Ownable.owner(), products[id].productPrice * 5 / 100);
         customerProductPurchased[msg.sender].push(products[id].musicId);
     }
     

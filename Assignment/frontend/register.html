@@ -101,7 +101,7 @@
 
         <div class="tabs">
 
-            <input name="tabbed" id="tabbed1" onclick="tabcheck1()" type="radio" checked>
+            <input name="tabbed" id="tabbed1" onclick="tabcheck1();" type="radio" checked>
             <section class="tabbed">
                 <h1>
                     <label for="tabbed1">Register Customer</label>
@@ -117,9 +117,9 @@
                                     <h1>Register as Customer</h1>
                                     <br>
                                     <p>Name</p>
-                                    <input type="text" class="profile-name" name="name" placeholder="Customer Name"
+                                    <input id="name1" type="text" class="profile-name" name="name" placeholder="Customer Name"
                                         required />
-                                    <button type="submit" class="button" href="#tabbed1">Proceed</button>
+                                    <button onclick="registerCustomer();" type="submit" class="button" href="#tabbed1">Proceed</button>
                                 </form>
                             </div>
                         </div>
@@ -127,7 +127,7 @@
                 </div>
             </section>
 
-            <input name="tabbed" id="tabbed2" onclick="tabcheck2()" type="radio">
+            <input name="tabbed" id="tabbed2" onclick="tabcheck2();" type="radio">
             <section class="tabbed">
                 <h1>
                     <label for="tabbed2">Register Artist</label>
@@ -143,9 +143,9 @@
                                     <h1>Register as Artist</h1>
                                     <br>
                                     <p>Name</p>
-                                    <input type="text" class="profile-name" name="name" placeholder="Artist Name"
+                                    <input id="name2" type="text" class="profile-name" name="name" placeholder="Artist Name"
                                         required />                                    
-                                    <button type="submit" class="button" href="#tabbed1">Proceed</button>
+                                    <button onclick="registerArtist();" type="submit" class="button" href="#tabbed1">Proceed</button>
                                 </form>
                             </div>
                         </div>

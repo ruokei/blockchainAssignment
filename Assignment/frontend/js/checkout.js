@@ -65,8 +65,10 @@ async function loadContract() {
     return await new window.web3.eth.Contract(abi, contractAddress);
 }
 
-async function addSong() {
+/*async function addSong() {
     updateStatus('Adding Song...');
+    const account = await getCurrentAccount();
+
     const tweetsNumber = await window.contract.methods.getTotalTweet().call();
 
     for (i = 0; i < tweetsNumber; i++) {
@@ -76,17 +78,27 @@ async function addSong() {
     }
 
     updateStatus(`All Tweets No.: ${tweetsNumber}`);
-}
+}*/
 
 async function getCurrentAccount() {
     const accounts = await window.web3.eth.getAccounts();
     return accounts[0];
 }
 
-async function changeCoolNumber() {
-    updateStatus(`Updating LonelyTwitter ...`);
+async function addSong() {
+    updateStatus('Adding Song...');
     const account = await getCurrentAccount();
-    const coolNumber = await window.contract.methods.createTweet(document.getElementById("name").value, document.getElementById("content").value).send({ from: account });
+
+    const addProduct = await window.contract.methods.addProduct(document.getElementById("songName").value, 
+    document.getElementById("songPrice").value).send({ from: account });
+    updateStatus('Updated.');
+}
+
+async function buySong() {
+    updateStatus('Purchasing Song...');
+    const account = await getCurrentAccount();
+
+    const addProduct = await window.contract.methods.buyProduct(document.getElementById("songId").value).send({ from: account });
     updateStatus('Updated.');
 }
 

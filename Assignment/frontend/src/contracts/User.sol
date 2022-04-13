@@ -34,17 +34,17 @@ contract User {
     function registerCustomer(string memory name) public {
         isExist = true;
         customerList[msg.sender] = Customer({
-            customerName name,
-            isExist isExist
+            customerName: name,
+            isExist: isExist
         });
     }
     
     function registerArtist(string memory name) public {
         isExist = true;
         artistList[msg.sender] = Artist({
-            artistAddress msg.sender,
-            artistName name,
-            isExist isExist
+            artistAddress: msg.sender,
+            artistName: name,
+            isExist: isExist
         });
     }
     

@@ -64,29 +64,26 @@ async function loadContract() {
     return await new window.web3.eth.Contract(abi, contractAddress);
 }
 
-async function getTweets() {
-    updateStatus('fetching All Tweets...');
-    const tweetsNumber = await window.contract.methods.getTotalTweet().call();
+/*exchangeTokens = (ethAmount) =>{
+    updateStatus('Transaction Pending...');
+    this.setState({ loading: true })
+    this.state.ethSwap.methods.buyTokens().send({ value: etherAmount, from: this.state.account }).on('transactionHash', (hash) => {
+      this.setState({ loading: false })
+    })
+    updateStatus('Transaction Done...');
+}*/
 
-    for (i = 0; i < tweetsNumber; i++) {
-        var result1 = await window.contract.methods.getTweetDetail(i).call();
-        a.innerHTML = a.innerHTML + "<h5>" + "TweetID: " + result1[0] + " " + "Name: " + result1[1] + " Content: " + result1[2] + "</h5>";
-
-    }
-
-    updateStatus(`All Tweets No.: ${tweetsNumber}`);
+async function exchangeTokens() {
+    updateStatus('Transaction Pending...');
+    const account = await getCurrentAccount();
+    const buytoken = await window.contract.methods.buyTokens.send({ 
+        value:document.getElementById("tokenAmount").value, from: account });
+    updateStatus('Registered.');
 }
 
 async function getCurrentAccount() {
     const accounts = await window.web3.eth.getAccounts();
     return accounts[0];
-}
-
-async function changeCoolNumber() {
-    updateStatus(`Updating LonelyTwitter ...`);
-    const account = await getCurrentAccount();
-    const coolNumber = await window.contract.methods.createTweet(document.getElementById("name").value, document.getElementById("content").value).send({ from: account });
-    updateStatus('Updated.');
 }
 
 async function load() {
