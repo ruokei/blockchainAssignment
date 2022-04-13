@@ -98,7 +98,8 @@
             <button id='loginButton' onclick="" class="button" style="width:60%;margin-bottom:10px;">Login with
                 MetaMask</button>
             <p>Your Metamask ID</p>
-            <p id='userWallet' class="inputbox" name="metaid" value="Your Metamask ID" style="margin-bottom:50px;"></p>
+            <p id='userWallet' class="inputbox" name="metaid" value="Your Metamask ID"></p>
+            <p id='status' class="" name="metaid" value="Status" style="margin-bottom:50px;"></p>
         </div>
 
         <div class="tabs">
@@ -166,6 +167,83 @@
                 </div>
             </section>
 
+            <input name="tabbed" id="tabbed3" onclick="tabcheck1();" type="radio" checked>
+            <section class="tabbed">
+                <h1>
+                    <label for="tabbed3">Register Customer</label>
+                </h1>
+                <div class="tabbed-desc">
+                    <container class="mainscreen">
+                        <div class="card">
+                            <div class="leftside">
+                                <img src="images/poweron.jpg" class="product" alt="On" />
+                            </div>
+                            <div class="rightside">
+                                <form action="">
+                                    <h1>Register as Customer</h1>
+                                    <br>
+                                    <p>Name</p>
+                                    <input id="name1" type="text" class="profile-name" name="name" placeholder="Customer Name"
+                                        required />
+                                    <button onclick="registerCustomer();" type="submit" class="button" href="#tabbed1">Proceed</button>
+                                </form>
+                            </div>
+                        </div>
+                    </container>
+                </div>
+            </section>
+
+            <input name="tabbed" id="tabbed4" onclick="tabcheck2();" type="radio">
+            <section class="tabbed">
+                <h1>
+                    <label for="tabbed4">Register Artist</label>
+                </h1>
+                <div class="tabbed-desc">
+                    <container class="mainscreen">
+                        <div class="card">
+                            <div class="leftside">
+                                <img src="images/poweron.jpg" class="product" alt="On" />
+                            </div>
+                            <div class="rightside">
+                                <form action="">
+                                    <h1>Register as Artist</h1>
+                                    <br>
+                                    <p>Name</p>
+                                    <input id="name2" type="text" class="profile-name" name="name" placeholder="Artist Name"
+                                        required />                                    
+                                    <button onclick="registerArtist();" type="submit" class="button" href="#tabbed1">Proceed</button>
+                                </form>
+                            </div>
+                        </div>
+                    </container>
+                </div>
+            </section>
+
+            <input name="tabbed" id="tabbed5" onclick="tabcheck1()" type="radio" checked>
+            <section class="tabbed">
+                <h1>
+                    <label for="tabbed5">Buy Token</label>
+                </h1>
+                <div class="tabbed-desc">
+                    <container class="mainscreen">
+                        <div class="card">
+                            <div class="leftside">
+                                <img src="images/goldcoin.jpg" class="product" alt="Coin" />
+                            </div>
+                            <div class="rightside">
+                                <form action="">
+                                    <h1>Buy Tokens</h1>
+                                    <br>
+                                    <p>Token Amount</p>
+                                    <input id="tokenAmount" type="text" class="profile-name" name="token" placeholder="Token Amount" disabled
+                                        required />
+                                    <button onclick="exchangeTokens()" type="submit" class="button" href="#tabbed1">Proceed</button>
+                                </form>
+                            </div>
+                        </div>
+                    </container>
+                </div>
+            </section>
 
         </div>
 

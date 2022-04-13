@@ -76,9 +76,7 @@ async function loadContract() {
 async function exchangeTokens() {
     updateStatus('Transaction Pending...');
     const account = await getCurrentAccount();
-    const buytoken = await window.contract.methods.buyTokens.send({ 
-        value:document.getElementById("tokenAmount").value, from: account });
-    updateStatus('Registered.');
+    const buytoken = await window.contract.methods.buyTokens();
 }
 
 async function getCurrentAccount() {
