@@ -104,26 +104,26 @@
                             </div>
                             <div class="rightside">
                                 <form action="">
-                                    <h1>Register Your Song</h1>
+                                    <h1>Register Song</h1>
                                     <br>
                                     <p>Song Name</p>
                                     <input type="text" class="profile-name" name="name" placeholder="Song Name"
                                         required />
-                                    <p>Your Email</p>
-                                    <input type="text" class="inputbox" name="email" placeholder="Your Email" id="email"
+                                    <p>Song Price</p>
+                                    <input type="text" class="inputbox" name="price" placeholder="Song Price" id="price"
                                         required />
                                     <button id='loginButton' onclick=""
                                         class="mx-auto rounded-md p-2 bg-purple-500 text-white">
                                         Login with MetaMask
                                     </button>
-                                    <p id='userWallet' class='text-lg text-gray-600 my-2'></p>
+                                     <p id='userWallet' class='text-lg text-gray-600 my-2'></p>
                                     <p>Your Account ID (from MetaMask)</p>
                                     <input type="text" value="Read Metamask ID" class="inputbox" name="metaid"
-                                        id="metaid" disabled />
-                                    <p>Upload Album Cover</p>
+                                        id="userWallet" disabled />
+                                    <!--<p>Upload Album Cover</p>
                                     <input type='file' accept="image/*" class="profile-img" placeholder="">
                                     <p>Upload Audio</p>
-                                    <input type='file' accept="audio/*" class="profile-aud" placeholder="">
+                                    <input type='file' accept="audio/*" class="profile-aud" placeholder="">-->
 
                                     <button type="submit" class="button" href="#tabbed2">Proceed</button>
                                 </form>
@@ -154,9 +154,13 @@
                                     <p>Email</p>
                                     <input type="text" class="inputbox" name="email" placeholder="Your Email" id="email"
                                         required />
+                                        <button id='loginButton' onclick=""
+                                        class="mx-auto rounded-md p-2 bg-purple-500 text-white">
+                                        Login with MetaMask
+                                    </button>
                                     <p>Your Account ID (from MetaMask)</p>
                                     <input type="text" value="Read Metamask ID" class="inputbox" name="metaid"
-                                        id="metaid" disabled />
+                                        id="userWallet" disabled />
                                     <button type="submit" class="button" href="#tabbed1">Proceed</button>
                                 </form>
                             </div>
@@ -186,9 +190,13 @@
                                     <p>Email</p>
                                     <input type="text" class="inputbox" name="email" placeholder="Your Email" id="email"
                                         required />
+                                        <button id='loginButton' onclick=""
+                                        class="mx-auto rounded-md p-2 bg-purple-500 text-white">
+                                        Login with MetaMask
+                                    </button>
                                     <p>Your Account ID (from MetaMask)</p>
                                     <input type="text" value="Read Metamask ID" class="inputbox" name="metaid"
-                                        id="metaid" disabled />
+                                        id="userWallet" disabled />
                                     <p>Referral Code</p>
                                     <input type="text" class="inputbox" name="email" placeholder="Your Email" id="email"
                                         required />
@@ -204,8 +212,18 @@
 
 
     </body>
-    <script src="js/checkout.js"></script>
-    <script src="js/connectmeta.js"></script>
+
+    <script src="js/token.js"></script>
+    <script scr='https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js'></script>
+    <script>
+        async function loadWeb3(){
+            if(window.ethereum){
+                window.web3 = new Web3(window.ethereum);
+                window.ethereum.enable();
+            }
+        }
+        loadWeb3()
+    </script>
     <script>
         function tabcheck1() {
             var el = document.getElementById("tabbed1");
@@ -232,53 +250,5 @@
             elll.classList.add("checked");
         }
     </script>
-    <script>
-        window.userWalletAddress = null
-        const loginButton = document.getElementById('loginButton')
-        const userWallet = document.getElementById('userWallet')
-
-        function toggleButton() {
-            if (!window.ethereum) {
-                loginButton.innerText = 'MetaMask is not installed'
-                loginButton.classList.remove('bg-purple-500', 'text-white')
-                loginButton.classList.add('bg-gray-500', 'text-gray-100', 'cursor-not-allowed')
-                return false
-            }
-
-            loginButton.addEventListener('click', loginWithMetaMask)
-        }
-
-        async function loginWithMetaMask() {
-            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
-                .catch((e) => {
-                    console.error(e.message)
-                    return
-                })
-            if (!accounts) { return }
-
-            window.userWalletAddress = accounts[0]
-            userWallet.innerText = window.userWalletAddress
-            loginButton.innerText = 'Sign out of MetaMask'
-
-            loginButton.removeEventListener('click', loginWithMetaMask)
-            setTimeout(() => {
-                loginButton.addEventListener('click', signOutOfMetaMask)
-            }, 200)
-        }
-
-        function signOutOfMetaMask() {
-            window.userWalletAddress = null
-            userWallet.innerText = ''
-            loginButton.innerText = 'Sign in with MetaMask'
-
-            loginButton.removeEventListener('click', signOutOfMetaMask)
-            setTimeout(() => {
-                loginButton.addEventListener('click', loginWithMetaMask)
-            }, 200)
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            toggleButton()
-        });
-    </script>
+    
 </body>
