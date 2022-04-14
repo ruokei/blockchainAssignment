@@ -3,6 +3,18 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
+// Buying a product in remix IDE
+// 1 approve
+// 2 allowance
+
+// 1. call approve function in Token.sol with Customer Address
+// Customer address
+// enter amount 200
+
+// 2. call allowance in Token.sol with Customer Address
+// owner: Customer address
+// spender: Customer address
+
 contract Music is Ownable, ERC20{
 
     uint public musicId=1;
