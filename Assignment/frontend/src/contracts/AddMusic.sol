@@ -6,18 +6,6 @@ import "./Token.sol";
 //import "node_modules/openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-// step to buy a product in remix IDE
-// 1 approve
-// 2 allowance
-
-// 1. call approve function in token.sol
-// 0x05898eB9924012c537B69b87DA3E91823ec4c899 DmusicProduct address
-// put amount 20
-
-// 2. call allowance in token.sol
-// owner: 0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB customer address
-// spender: 0x05898eB9924012c537B69b87DA3E91823ec4c899
-
 contract AddMusic is Ownable {
     
     LunCoin token;

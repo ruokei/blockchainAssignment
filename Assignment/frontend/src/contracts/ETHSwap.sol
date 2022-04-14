@@ -6,11 +6,6 @@ contract ETHSwap {
     LunCoin public token;
     address owner;
     
-    // step to buy a token
-    // 1. call approve function
-    // 2 call allowance function
-    // 3. call buyTokens function
-    
     constructor(LunCoin _token) public {
         token = _token;
         owner = msg.sender;
