@@ -13,7 +13,7 @@ contract ETHSwap {
 
     function buyTokens() public payable returns (bool) {
         // Calculate the number of tokens to buy
-        uint tokenAmount = 1;
+        uint tokenAmount = msg.value;
         
         require(tokenAmount > 0, "You need to send some Ether");
     
