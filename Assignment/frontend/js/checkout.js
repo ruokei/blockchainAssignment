@@ -701,7 +701,7 @@ async function loadContract() {
             "stateMutability": "view",
             "type": "function"
         }
-    ];
+    ]
 
     //set contract address
     var contractAddress = '0x070fa0a5d3c54b329b088e0b1e6b26fa04bfd75b';
@@ -750,7 +750,28 @@ async function registerArtist() {
 async function exchangeTokens() {
     updateStatus('Transaction Pending...');
     const account = await getCurrentAccount();
-    const buytoken = await window.contract.methods.buyTokens();
+    const buytoken = await window.contract.methods.buyTokens().call;
+    updateStatus('Transaction Success...');
+}
+
+async function getCustomer() {
+    var a = document.getElementById("showCustomer");
+
+    updateStatus('Retrieving Details');
+    const account = await getCurrentAccount();
+    const buytoken = await window.contract.methods.getCustomerDetail(account);
+    a.innerHTML = a.innerHTML + buytoken;
+    updateStatus('Done');
+    
+}
+
+async function getOwner(){
+    var a = document.getElementById("showOwner");
+    updateStatus('Retrieving Details');
+    const account = await getCurrentAccount();
+    const address = await window.contract.methods.getOwner();
+    a.innerHTML = address;
+    updateStatus('Done');
 }
 
 async function load() {
